@@ -3,12 +3,10 @@ package me.diego.dsmeta.dto.productResponse;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
-@Setter
 public class ProductSoldResponse extends ProductResponseDTO{
     private LocalDateTime soldAt;
 

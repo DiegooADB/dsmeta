@@ -29,7 +29,7 @@ public class SellerService {
 
     public Seller findByIdOrThrowsBadRequestException(long id) {
         return sellerRepository.findById(id)
-                .orElseThrow(() -> new BadRequestException("User not found"));
+                .orElseThrow(() -> new BadRequestException("Seller not found"));
     }
 
     public void delete(long id) {

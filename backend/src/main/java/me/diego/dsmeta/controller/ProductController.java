@@ -10,6 +10,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,10 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<Page<ProductResponseDTO>> findAll(@PageableDefault Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAll(pageable));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ProductResponseDTO> findById(@PathVariable long id) {
+        return ResponseEntity.status(HttpStatus.FOUND).body(productService.findByIdOrThrowsBadRequest(id));
     }
 }
