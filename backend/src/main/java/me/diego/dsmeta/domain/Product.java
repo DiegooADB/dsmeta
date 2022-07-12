@@ -22,4 +22,6 @@ public class Product {
     private LocalDateTime createdAt;
 
     private boolean itSold;
+
+    private LocalDateTime soldAt;
 }

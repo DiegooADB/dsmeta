@@ -4,12 +4,10 @@ import me.diego.dsmeta.domain.Seller;
 import me.diego.dsmeta.exceptions.BadRequestException;
 import me.diego.dsmeta.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
