@@ -18,3 +18,10 @@ logging:
     org:
       hibernate:
         SQL: DEBUG
+
+twilio:
+  sid: 123
+  key: 123
+  phone:
+    from: 123
+    to: 123
