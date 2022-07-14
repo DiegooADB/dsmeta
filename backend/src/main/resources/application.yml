@@ -7,8 +7,8 @@ spring:
     name: person-crud
   datasource:
     url: jdbc:mysql://localhost:3306/dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+    username: epiz_32170774
+    password: hamoodhabibi
   jpa:
     hibernate:
       ddl-auto: update
