@@ -6,7 +6,7 @@ spring:
   application:
     name: person-crud
   datasource:
-    url: jdbc:mysql://localhost:3306/dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://sql206.epizy.com/epiz_32170774_dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     username: epiz_32170774
     password: hamoodhabibi
   jpa:
