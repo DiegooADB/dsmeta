@@ -6,12 +6,12 @@ spring:
   application:
     name: person-crud
   datasource:
-    url: jdbc:mysql://localhost:3306/dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+    url: jdbc:h2:mem:dsmeta
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
   jpa:
-    hibernate:
-      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
 
 logging:
   level:
