@@ -6,9 +6,9 @@ spring:
   application:
     name: person-crud
   datasource:
-    url: jdbc:mysql://sql206.epizy.com/epiz_32170774_dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
-    username: epiz_32170774
-    password: hamoodhabibi
+    url: jdbc:mysql://localhost:3306/dsmeta?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
+    username: root
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,8 +20,8 @@ logging:
         SQL: DEBUG
 
 twilio:
-  sid: 123
-  key: 123
+  sid: ${TWILIO_SID}
+  key: ${TWILIO_KEY}
   phone:
-    from: 123
-    to: 123
+    from: ${TWILIO_PHONE_FROM}
+    to: ${TWILIO_PHONE_TO}
