@@ -2,6 +2,7 @@ package me.diego.dsmeta.services;
 
 import lombok.RequiredArgsConstructor;
 import me.diego.dsmeta.entities.Sale;
+import me.diego.dsmeta.exceptions.BadRequestException;
 import me.diego.dsmeta.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,5 +27,9 @@ public class SaleService {
         LocalDate max = maxDate.equals("") ? today : LocalDate.parse(maxDate);
 
         return saleRepository.findSales(min, max, pageable);
+    }
+
+    public Sale findByIdOrThrowsBadRequest(Long id) {
+        return saleRepository.findById(id).orElseThrow(() -> new BadRequestException("User not found"));
     }
 }

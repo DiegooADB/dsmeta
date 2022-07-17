@@ -9,11 +9,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/sales")
+@RequestMapping(path = "/sales", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class SaleController {
     @Autowired
@@ -29,8 +30,14 @@ public class SaleController {
         return ResponseEntity.status(HttpStatus.FOUND).body(saleService.findAll(minDate, maxDate, pageable));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Sale> findById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.FOUND).body(saleService.findByIdOrThrowsBadRequest(id));
+    }
+
     @GetMapping("/{id}/notification")
     public void notifySms(@PathVariable Long id) {
         smsService.sendSms(id);
     }
+
 }

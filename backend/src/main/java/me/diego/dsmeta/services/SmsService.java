@@ -4,7 +4,6 @@ import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import me.diego.dsmeta.entities.Sale;
-import me.diego.dsmeta.exceptions.BadRequestException;
 import me.diego.dsmeta.repositories.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,10 +26,11 @@ public class SmsService {
     @Autowired
     private SaleRepository saleRepository;
 
-    public void sendSms(Long saleId) {
+    @Autowired
+    private SaleService saleService;
 
-        Sale sale = saleRepository.findById(saleId).orElseThrow(() ->
-                new BadRequestException("User not found"));
+    public void sendSms(Long saleId) {
+        Sale sale = saleService.findByIdOrThrowsBadRequest(saleId);
 
         String date = sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
 
